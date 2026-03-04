@@ -1,6 +1,13 @@
 <div align="center">
 
-![WatchTower Banner](https://github.com/0xS4r4n9/watchtower/blob/main/watchtower_banner.svg)
+```
+ ██╗    ██╗ █████╗ ████████╗ ██████╗██╗  ██╗████████╗ ██████╗ ██╗    ██╗███████╗██████╗ 
+ ██║    ██║██╔══██╗╚══██╔══╝██╔════╝██║  ██║╚══██╔══╝██╔═══██╗██║    ██║██╔════╝██╔══██╗
+ ██║ █╗ ██║███████║   ██║   ██║     ███████║   ██║   ██║   ██║██║ █╗ ██║█████╗  ██████╔╝
+ ██║███╗██║██╔══██║   ██║   ██║     ██╔══██║   ██║   ██║   ██║██║███╗██║██╔══╝  ██╔══██╗
+ ╚███╔███╔╝██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
+  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
+```
 
 # ReconTower 🗼
 
@@ -24,7 +31,7 @@
 
 **ReconTower** is a comprehensive, automated network auditing and penetration testing tool built for security professionals and red teamers. It combines host discovery, port scanning, service enumeration, vulnerability detection, exploit intelligence, and professional PDF reporting — all in a single colorful, intuitive CLI tool.
 
-> ⚠️ **Legal Disclaimer:** WatchTower is intended for use on networks and systems you own or have explicit written permission to test. Unauthorized use against systems you do not own is illegal. The author assumes no liability for misuse.
+> ⚠️ **Legal Disclaimer:** ReconTower is intended for use on networks and systems you own or have explicit written permission to test. Unauthorized use against systems you do not own is illegal. The author assumes no liability for misuse.
 
 ---
 
@@ -88,8 +95,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/0xS4r4n9/watchtower.git
-cd watchtower
+git clone https://github.com/0xS4r4n9/recontower.git
+cd recontower
 ```
 
 ### 2. Install System Dependencies
@@ -117,7 +124,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 # Always run inside the venv:
-sudo venv/bin/python3 watchtower.py -t auto
+sudo venv/bin/python3 recontower.py -t auto
 ```
 
 **Standard Linux / older systems:**
@@ -126,12 +133,12 @@ sudo venv/bin/python3 watchtower.py -t auto
 pip install -r requirements.txt
 ```
 
-> 💡 WatchTower also attempts auto-install on first run using `--break-system-packages` as a fallback, so in most cases you can just run it directly.
+> 💡 ReconTower also attempts auto-install on first run using `--break-system-packages` as a fallback, so in most cases you can just run it directly.
 
 ### 4. Make Executable (optional)
 
 ```bash
-chmod +x watchtower.py
+chmod +x recontower.py
 ```
 
 ---
@@ -139,7 +146,7 @@ chmod +x watchtower.py
 ## 🚀 Usage
 
 ```
-sudo python3 watchtower.py -t <TARGET> [OPTIONS]
+sudo python3 recontower.py -t <TARGET> [OPTIONS]
 ```
 
 ### Arguments
@@ -159,25 +166,25 @@ sudo python3 watchtower.py -t <TARGET> [OPTIONS]
 
 ```bash
 # Auto-discover and scan entire local network
-sudo python3 watchtower.py -t auto
+sudo python3 recontower.py -t auto
 
 # Scan a single host (full audit)
-sudo python3 watchtower.py -t 192.168.1.100
+sudo python3 recontower.py -t 192.168.1.100
 
 # Scan a subnet
-sudo python3 watchtower.py -t 192.168.1.0/24
+sudo python3 recontower.py -t 192.168.1.0/24
 
 # Fast scan with custom port range
-sudo python3 watchtower.py -t 10.0.0.1 -p 1-1024 --fast
+sudo python3 recontower.py -t 10.0.0.1 -p 1-1024 --fast
 
 # Scan without brute force (quieter)
-sudo python3 watchtower.py -t 192.168.1.100 --no-audit
+sudo python3 recontower.py -t 192.168.1.100 --no-audit
 
 # Scan and save report with custom filename
-sudo python3 watchtower.py -t 192.168.1.0/24 -o client_pentest_report.pdf
+sudo python3 recontower.py -t 192.168.1.0/24 -o client_pentest_report.pdf
 
 # Skip exploit search for faster results
-sudo python3 watchtower.py -t 192.168.1.100 --no-exploits
+sudo python3 recontower.py -t 192.168.1.100 --no-exploits
 ```
 
 ---
@@ -218,7 +225,7 @@ sudo python3 watchtower.py -t 192.168.1.100 --no-exploits
 
 ## 💣 Exploit Intelligence
 
-WatchTower automatically queries two sources for each discovered service:
+ReconTower automatically queries two sources for each discovered service:
 
 1. **SearchSploit (ExploitDB)** — searches the local exploit database for matching exploits
 2. **NIST NVD API** — fetches real CVEs with CVSS scores for the detected product/version
@@ -233,7 +240,7 @@ Results include:
 
 ## 📋 Report
 
-WatchTower generates a professional **PDF report** suitable for client delivery, containing:
+ReconTower generates a professional **PDF report** suitable for client delivery, containing:
 
 - **Cover Page** — scan metadata, date, host count, finding totals
 - **Executive Summary** — risk overview with severity breakdown table
@@ -245,7 +252,7 @@ WatchTower generates a professional **PDF report** suitable for client delivery,
 
 ## 🗺️ Network Topology
 
-After scanning, WatchTower renders a visual tree of the network:
+After scanning, ReconTower renders a visual tree of the network:
 
 ```
 🌐 Network
@@ -295,8 +302,8 @@ colorama>=0.4.6
 ## 🗂️ Project Structure
 
 ```
-watchtower/
-├── watchtower.py        # Main tool
+recontower/
+├── recontower.py        # Main tool
 ├── requirements.txt     # Python dependencies
 ├── README.md            # This file
 └── LICENSE              # MIT License
@@ -308,7 +315,7 @@ watchtower/
 
 This tool is provided for **educational and authorized security testing purposes only**.
 
-- Only use WatchTower on systems you **own** or have **explicit written authorization** to test.
+- Only use ReconTower on systems you **own** or have **explicit written authorization** to test.
 - Running this tool against systems without permission is **illegal** and may violate the Computer Fraud and Abuse Act (CFAA), the UK Computer Misuse Act, and equivalent laws in your jurisdiction.
 - The author, **0xS4r4n9**, accepts **no responsibility** for any illegal or unethical use of this tool.
 
